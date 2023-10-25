@@ -23,6 +23,8 @@ Auth::routes();
 Route::get('auth/google', [LoginGoogleController::class, 'redirectToGoogle'])->name('google.login');
 Route::get('auth/google/callback', [LoginGoogleController::class, 'handleGoogleCallback'])->name('google.callback');
 
+Route::post('send-email', [App\Http\Controllers\SendEmailController::class, 'sendEmail'])->name('send.email');
+
 Route::middleware('auth')->group(function (){
     Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 });
